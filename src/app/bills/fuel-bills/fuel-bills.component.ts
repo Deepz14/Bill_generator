@@ -9,6 +9,8 @@ import { FormGroup, FormControl, Validators, FormsModule } from '@angular/forms'
 export class FuelBillsComponent implements OnInit {
 
   fuelBillForm: any;
+  quantity: any = 0;
+  showQuantity: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -29,6 +31,24 @@ export class FuelBillsComponent implements OnInit {
       fileName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required])
     });
+  }
+
+  updateQuantity(){
+    let totalamount = this.fuelBillForm.get('totalAmount').value;
+    let fuelRate = this.fuelBillForm.get('fuelRate').value;
+    if(totalamount && fuelRate){
+      let calc = String(totalamount / fuelRate);
+      this.showQuantity = true;
+      this.quantity = parseFloat(calc).toFixed(2)
+    }else{
+      this.showQuantity = false;
+    }
+  }
+
+  resetForm(): void{
+    this.fuelBillForm.reset();
+    this.fuelBillForm.get('logo').setValue('bharat');
+    this.fuelBillForm.get('tax').setValue('none');
   }
 
 }
