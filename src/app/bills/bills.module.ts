@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BillsComponent } from './bills.component';
 import { FuelBillsComponent } from './fuel-bills/fuel-bills.component';
 import { FuelBillsPreviewComponent } from './fuel-bills/fuel-bills-preview/fuel-bills-preview.component';
@@ -24,6 +25,8 @@ const Routes: Routes = [
   ],
   imports: [
     CommonModule,
+    FormsModule, 
+    ReactiveFormsModule,
     RouterModule.forChild(Routes)
   ]
 })

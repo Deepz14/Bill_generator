@@ -5,123 +5,120 @@
                 <h3 class="bills-title"> Fuel Bill </h3>
                 <div class="row mt-4">
                     <div class="col-12 col-sm-12 col-md-6">
-                        <form>
+                        <form [formGroup]="fuelBillForm">
                             <h4>Fuel Station Details </h4>
-                            <fieldset>
-                                <legend>Select Logo</legend>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="logo-bhp" value="bhp">
-                                    <label class="form-check-label" for="logo-bhp">Bharat Petroleum</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="logo-io" value="io">
-                                    <label class="form-check-label" for="logo-io">Indian Oil</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="logo-hpo" value="hpo">
-                                    <label class="form-check-label" for="logo-hpo">HP Oil</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="logo-eso" value="eso">
-                                    <label class="form-check-label" for="logo-eso">ESSAR Oil</label>
-                                </div>
-                            </fieldset>
+                            <legend>Select Logo</legend>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="logo" id="logo-bhp" formControlName="logo" value="bharat">
+                                <label class="form-check-label" for="logo-bhp">Bharat Petroleum</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="logo" id="logo-io" formControlName="logo" value="oil">
+                                <label class="form-check-label" for="logo-io">Indian Oil</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="logo" id="logo-hpo" formControlName="logo" value="hp">
+                                <label class="form-check-label" for="logo-hpo">HP Oil</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="logo" id="logo-eso" formControlName="logo" value="essar">
+                                <label class="form-check-label" for="logo-eso">ESSAR Oil</label>
+                            </div>
 
-                            <fieldset>
-                                <div class="form-group">
-                                    <label for="stationname" class="form-label mt-4">Fuel Station Name</label>
-                                    <input type="text" class="form-control" id="stationname" placeholder="Fuel Station Name">
+                    
+                            <div class="form-group">
+                                <label for="stationname" class="form-label mt-4">Fuel Station Name </label>
+                                <input type="text" class="form-control" id="stationname" formControlName="stationName" placeholder="Fuel Station Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="stationaddress" class="form-label mt-4">Fuel Station Address</label>
+                                <textarea class="form-control" id="stationaddress" placeholder="Fuel Station Address....." 
+                                formControlName="stationAddress" rows="3"></textarea>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <label for="fuelrate" class="form-label mt-4">Fuel Rate</label>
+                                    <input type="text" class="form-control" id="fuelrate" formControlName="fuelRate" placeholder="Fuel Rate">
                                 </div>
-                                <div class="form-group">
-                                    <label for="stationaddress" class="form-label mt-4">Fuel Station Address</label>
-                                    <textarea class="form-control" id="stationaddress" placeholder="Fuel Station Address....." rows="3"></textarea>
+                                <div class="col">
+                                    <label for="totamount" class="form-label mt-4">Total Amount</label>
+                                    <input type="text" class="form-control" id="totamount" formControlName="totalAmount" placeholder="Total Amount">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col">
-                                        <label for="fuelrate" class="form-label mt-4">Fuel Rate</label>
-                                        <input type="text" class="form-control" id="fuelrate" placeholder="Fuel Rate">
-                                    </div>
-                                    <div class="col">
-                                        <label for="totamount" class="form-label mt-4">Total Amount</label>
-                                        <input type="text" class="form-control" id="totamount" placeholder="Total Amount">
-                                    </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <label for="fueldate" class="form-label mt-4">Fuel Bill Date</label>
+                                    <input type="date" class="form-control" id="fueldate" formControlName="billDate" placeholder="Fuel Bill Date">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col">
-                                        <label for="fueldate" class="form-label mt-4">Fuel Bill Date</label>
-                                        <input type="date" class="form-control" id="fueldate" placeholder="Fuel Bill Date">
-                                    </div>
-                                    <div class="col">
-                                        <label for="fueltime" class="form-label mt-4">Fuel Bill Time</label>
-                                        <input type="time" class="form-control" id="fueltime" placeholder="Fuel Bill Time">
-                                    </div>
+                                <div class="col">
+                                    <label for="fueltime" class="form-label mt-4">Fuel Bill Time</label>
+                                    <input type="time" class="form-control" id="fueltime" formControlName="billTime" placeholder="Fuel Bill Time">
                                 </div>
-                            </fieldset>
-
-                            <fieldset>
-                                <legend class="mt-3">Customer Details</legend>
-                                <div class="form-group">
-                                    <label for="customname" class="form-label mt-4">Customer Name</label>
-                                    <input type="text" class="form-control" id="customname" placeholder="Enter Customer Name">
+                            </div>
+                        
+                            <legend class="mt-3">Customer Details</legend>
+                            <div class="form-group">
+                                <label for="customname" class="form-label mt-4">Customer Name</label>
+                                <input type="text" class="form-control" id="customname" formControlName="customerName" placeholder="Enter Customer Name">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <label for="vehiclenum" class="form-label mt-4">Vehicle Number</label>
+                                    <input type="text" class="form-control" id="vehiclenum" formControlName="vehicleNum" placeholder="Vehicle Number">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col">
-                                        <label for="vehiclenum" class="form-label mt-4">Vehicle Number</label>
-                                        <input type="text" class="form-control" id="vehiclenum" placeholder="Vehicle Number">
-                                    </div>
-                                    <div class="col">
-                                        <label for="vehicletype" class="form-label mt-4">Vehicle Type</label>
-                                        <select class="form-select" id="vehicletype">
-                                          <option>Select One</option>
-                                          <option>Diesel</option>
-                                          <option>Petrol</option>
-                                          <option>CNG</option>
-                                          <option>Electric</option>
-                                        </select>
-                                    </div>
+                                <div class="col">
+                                    <label for="vehicletype" class="form-label mt-4">Vehicle Type</label>
+                                    <select formControlName="vehicleType" class="form-select" id="vehicletype">
+                                        <option value="">Select One</option>
+                                        <option value="diesel">Diesel</option>
+                                        <option value="petrol">Petrol</option>
+                                        <option value="cng">CNG</option>
+                                        <option value="electric">Electric</option>
+                                    </select>
                                 </div>
-                                <div class="form-group row mb-3">
-                                    <div class="col">
-                                        <label for="paymentmethod" class="form-label mt-4">Payment Method</label>
-                                        <select class="form-select" id="paymentmethod">
-                                            <option>Select One</option>
-                                            <option>Cash</option>
-                                            <option>Online</option>
-                                            <option>Card</option>
-                                        </select>
-                                    </div>
-                                    <div class="col">
-                                        <label for="invno" class="form-label mt-4">Invoice Number</label>
-                                        <input type="text" class="form-control" id="invno" placeholder="Invoice Number/Receipt Number">
-                                    </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <div class="col">
+                                    <label for="paymentmethod" class="form-label mt-4">Payment Method</label>
+                                    <select class="form-select" formControlName="paymentType" id="paymentmethod">
+                                        <option value="">Select One</option>
+                                        <option value="cash">Cash</option>
+                                        <option value="online">Online</option>
+                                        <option value="card">Card</option>
+                                    </select>
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="tax-none" value="none">
-                                    <label class="form-check-label" for="tax-none">None</label>
+                                <div class="col">
+                                    <label for="invno" class="form-label mt-4">Invoice Number</label>
+                                    <input type="text" class="form-control" id="invno" formControlName="invoiceNum" placeholder="Invoice Number/Receipt Number">
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="tax-csttin" value="cst-tin">
-                                    <label class="form-check-label" for="tax-csttin">CST TIN</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="tax-gsttin" value="gst-tin">
-                                    <label class="form-check-label" for="tax-gsttin">GST TIN</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="tax-num" value="tax-num">
-                                    <label class="form-check-label" for="tax-num">TAX NO</label>
-                                </div>
-                                <div class="form-group">
-                                    <label for="emailattachfilename" class="form-label mt-4">Email Attachment File Name</label>
-                                    <input type="text" class="form-control" id="emailattachfilename" placeholder="Fuel Bill Template 1">
-                                    <small class="form-text text-muted">This will be used as name of pdf attachment sent over the email</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="emailaddress" class="form-label mt-4">Email Address</label>
-                                    <input type="text" class="form-control" id="emailaddress" placeholder="Enter Email">
-                                    <small class="form-text text-muted">Please enter correct email. Bill PDF will be sent to this email address.</small>
-                                </div>
-                            </fieldset>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tax" formControlName="tax" id="tax-none" value="none">
+                                <label class="form-check-label" for="tax-none">None</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tax" formControlName="tax" id="tax-csttin" value="cst-tin">
+                                <label class="form-check-label" for="tax-csttin">CST TIN</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tax" formControlName="tax" id="tax-gsttin" value="gst-tin">
+                                <label class="form-check-label" for="tax-gsttin">GST TIN</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tax" formControlName="tax" id="tax-num" value="tax-num">
+                                <label class="form-check-label" for="tax-num">TAX NO</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="emailattachfilename" class="form-label mt-4">Email Attachment File Name</label>
+                                <input type="text" class="form-control" id="emailattachfilename" formControlName="fileName" placeholder="Fuel Bill Template 1">
+                                <small class="form-text text-muted">This will be used as name of pdf attachment sent over the email</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="emailaddress" class="form-label mt-4">Email Address</label>
+                                <input type="text" class="form-control" id="emailaddress" formControlName="email" placeholder="Enter Email">
+                                <small class="form-text text-muted">Please enter correct email. Bill PDF will be sent to this email address.</small>
+                            </div>
+                        
 
                             <button type="submit" class="btn btn-primary my-4">Submit</button>
                             <button type="button" class="btn btn-primary ms-3 my-4">Clear</button>
@@ -138,7 +135,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-6 col-sm-6 col-lg-6">
-                                        <img class="live-preivew-logo" src="../../../assets/media/logo/Bharat.png" alt="logo" />
+                                        <img class="live-preivew-logo" src="../../../assets/media/logo/{{this.fuelBillForm.controls['logo'].value}}.png" alt="logo" />
                                     </div>
                                     <div class="col-6 col-sm-6 col-lg-6">
                                         <h4>Receipt Details</h4>
