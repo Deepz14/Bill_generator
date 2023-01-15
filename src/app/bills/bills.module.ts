@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BillsComponent } from './bills.component';
 import { FuelBillsComponent } from './fuel-bills/fuel-bills.component';
+import { FuelBillsPreviewComponent } from './fuel-bills/fuel-bills-preview/fuel-bills-preview.component';
 
 const Routes: Routes = [
   {
@@ -18,7 +19,8 @@ const Routes: Routes = [
 @NgModule({
   declarations: [
     BillsComponent,
-    FuelBillsComponent
+    FuelBillsComponent,
+    FuelBillsPreviewComponent
   ],
   imports: [
     CommonModule,
